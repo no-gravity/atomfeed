@@ -13,14 +13,14 @@ Example usage:
 import atomfeed
 
 data = {
-    "title"    : "A wonderful feed",
-    "id"       : "https://www.example.com",
-    "link_web" : "https://www.example.com",
-    "link_feed": "https://www.example.com/atom.xml",
-    "subtitle" : "Everything about feeds and stuff",
-    updated    : "2023-01-07",
-    author_name: "Mr. Example",
-    author_mail: "example@example.com",
+    "title"      : "A wonderful feed",
+    "id"         : "https://www.example.com",
+    "link_web"   : "https://www.example.com",
+    "link_feed"  : "https://www.example.com/atom.xml",
+    "subtitle"   : "Everything about feeds and stuff",
+    "updated"    : "2023-01-07",
+    "author_name": "Mr. Example",
+    "author_mail": "example@example.com",
 }
 
 data.entries = [{
