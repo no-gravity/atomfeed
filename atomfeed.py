@@ -39,8 +39,8 @@ def template_dict(template, data):
 
 def generate(data):
     feed = ""
-    data.updated = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
-    for entry in data.entries:
+    data["updated"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+    for entry in data["entries"]:
         feed += template_dict(entry_template, entry)
-    data.entries = feed;
+    data["entries"] = feed;
     return template_dict(atom_template, data)
