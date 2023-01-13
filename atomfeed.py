@@ -32,7 +32,7 @@ entry_template = """
 """
 
 def template_dict(template, data):
-    r = template;
+    r = template
     for tag in data.keys():
         r = r.replace('{'+tag+'}',data[tag])
     return r
@@ -42,5 +42,5 @@ def generate(data):
     data["updated"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
     for entry in data["entries"]:
         feed += template_dict(entry_template, entry)
-    data["entries"] = feed;
+    data["entries"] = feed
     return template_dict(atom_template, data)
