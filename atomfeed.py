@@ -41,7 +41,6 @@ def generate(data):
     feed = ""
     most_recent = "0000-00-00"
     for entry in data["entries"]:
-        if entry["updated"] > most_recent: most_recent = entry["updated"]
         most_recent = max(most_recent, entry["updated"])
         feed += template_dict(entry_template, entry)
     data["entries"] = feed;
