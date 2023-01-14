@@ -39,8 +39,12 @@ def template_dict(template, data):
 
 def generate(data):
     feed = ""
-    data["updated"] = datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+    most_recent = "0000-00-00"
     for entry in data["entries"]:
+        if entry["updated"] > most_recent: most_recent = entry["updated"]
+        most_recent = max(most_recent, entry["updated"])
         feed += template_dict(entry_template, entry)
-    data["entries"] = feed
+    data["entries"] = feed;
+    # If no feed update time was provided, use the one of the most recent entry:
+    if not data["updated"]: data["updated"] = most_recent
     return template_dict(atom_template, data)
